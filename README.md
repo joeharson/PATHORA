@@ -45,7 +45,8 @@ PATHORA processes the request, delegates tasks to specialized agents, researches
 - **Web Interface** — Provides a simple interface for submitting travel requests and viewing generated plans.
 
 ---
-
+ 
+ 
 ## Architecture
 
 PATHORA separates travel planning into independent responsibilities:
