@@ -50,11 +50,11 @@ if not GROQ_API_KEY:
 
 # GROQ LLM
 llm = ChatGroq(
-    model="openai/gpt-oss-120b",
+    model=" ",
     api_key=GROQ_API_KEY
 )
 
-
+ 
 # State 
 
 class TravelState(TypedDict):
