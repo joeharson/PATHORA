@@ -99,7 +99,6 @@ async def health_check():
         "message": "AI Travel Planner API is running"
     }
 
-
 @app.get("/favicon.ico")
 async def favicon():
     return JSONResponse(content={})
