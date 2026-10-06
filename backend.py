@@ -7,6 +7,7 @@ import operator
 import uuid
 
 import psycopg
+import asyncio
 from psycopg.rows import dict_row
  
 from langgraph.graph import StateGraph, START, END
@@ -18,7 +19,8 @@ from langchain_core.messages import (
     SystemMessage,
 )
 from langchain_groq import ChatGroq
-from tools.tavily_tool import tavily_search
+# from tools.tavily_tool import tavily_search
+from MCP_Client_Testing import tavily_mcp_search
 from tools.flight_tool import search_flights
 
 #used for loading environment variables from .env file and setting up SSL certificate paths for secure connections.
@@ -50,7 +52,7 @@ if not GROQ_API_KEY:
 
 # GROQ LLM
 llm = ChatGroq(
-    model=" ",
+    model="openai/gpt-oss-120b",
     api_key=GROQ_API_KEY
 )
 
@@ -86,7 +88,8 @@ def flight_agent(state: TravelState):
 
 def hotel_agent(state: TravelState):
     query = f"Best hotels for {state['user_query']}"
-    hotel_results = tavily_search(query)
+    # hotel_results = tavily_search(query)
+    hotel_results = asyncio.run(tavily_mcp_search(query))
 
     return {
         "hotel_results": hotel_results,
