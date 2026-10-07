@@ -50,12 +50,12 @@ client = MultiServerMCPClient(
                     "transport": "stdio",
         
                     # Use the same Python environment that runs app.py.
-                    "command": "python",
+                    "command":  sys.executable,
         
                     # Automatically use custom_weather_mcp_server.py
                     # from the current project directory.
                     "args": [
-                        r"D:\\2)WORK AND FORUM\\learnings\\PATHORA\\custom_weather_mcp_server.py"
+                         str(Path(__file__).resolve().parent / "custom_weather_mcp_server.py")
                     ],
         
                     "env": {

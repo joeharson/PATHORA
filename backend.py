@@ -284,8 +284,6 @@ Weather:
 Itinerary:
 {state['itinerary']}
 
-Itinerary:
-{state['itinerary']}
 
 Format the final answer beautifully using these sections:
 
